@@ -1,7 +1,71 @@
-MainWidget:
+WindowManager:
+    WelcomeScreen:
+    AddPlayersScreen:
+    GameplayScreen:
+    ResultsScreen:
 
-<MainWidget@BoxLayout>
-    Button:
-        text:"HELLO"
-    Label:
-        text: "YAY"
+<WelcomeScreen@Screen>:
+    name: "Welcome"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "WELCOME TO SEASON OF WEALTH! PRESS BUTTON BELOW TO START"
+        Button:
+            text: "START GAME"
+            on_release:
+                app.root.current = "AddPlayers"
+                root.manager.transition.direction = "left"
+
+<AddPlayersScreen@Screen>:
+    name: "AddPlayers"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "ADD PLAYERS"
+        BoxLayout:
+            Button:
+                text: "Add player (now press this to proceed)"
+                on_release:
+                    app.root.current = "Gameplay"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "Go back"
+                on_release:
+                    app.root.current = "Welcome"
+                    root.manager.transition.direction = "right"
+
+<GameplayScreen@Screen>:
+    name: "Gameplay"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "GAMEPLAY"
+        BoxLayout:
+            Button:
+                text: "NEXT PLAYER TURN (now press this to proceed)"
+                on_release:
+                    app.root.current = "Results"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "Go back to adding players"
+                on_release:
+                    app.root.current = "AddPlayers"
+                    root.manager.transition.direction = "right"
+
+<ResultsScreen@Screen>:
+    name: "Results"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "WINNER!"
+        BoxLayout:
+            Button:
+                text: "GO BACK TO STARTING SCREEN"
+                on_release:
+                    app.root.current = "Welcome"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "CONTINUE PLAYING GAME"
+                on_release:
+                    app.root.current = "Gameplay"
+                    root.manager.transition.direction = "right"
