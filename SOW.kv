@@ -1,3 +1,6 @@
+#:import Factory kivy.factory.Factory
+
+
 WindowManager:
     WelcomeScreen:
     AddPlayersScreen:
@@ -33,6 +36,10 @@ WindowManager:
                 on_release:
                     app.root.current = "Welcome"
                     root.manager.transition.direction = "right"
+            Button:
+                text: "Add player"
+                on_release:
+                    app.ShowAddPlayerPopup()
 
 <GameplayScreen@Screen>:
     name: "Gameplay"
@@ -69,3 +76,35 @@ WindowManager:
                 on_release:
                     app.root.current = "Gameplay"
                     root.manager.transition.direction = "right"
+
+<AddPlayerPopup>
+    title: "popup test"
+    auto_dismiss: False #so cannot just tap anywhere to remove
+
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            cols : 2
+            Label:
+                text:"Name"
+            TextInput:
+                id: name_input
+                multiline: False # Set to False for single-line input like a username
+            Label:
+                text:"Income"
+            TextInput:
+                id: income_input
+                multiline: False # Set to False for single-line input like a username
+            Label:
+                text:"Cash"
+            TextInput:
+                id: cash_input
+                multiline: False # Set to False for single-line input like a username
+
+        Button:
+            text: "Add Player!"
+            on_release: root.SavePlayerInfo() #clear textinput window if invalid entry is found
+        Button:
+            text: "Exit popup"
+            on_release: root.dismiss() #to exit popup without adding player
+
