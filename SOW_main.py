@@ -9,6 +9,28 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+class Asset:
+    def __init__(self, asset_name, asset_value, asset_income_per_month):
+        self.name = asset_name
+        self.value = asset_value
+        self.asset_income_per_month = asset_income_per_month
+
+class Player:
+
+    def __init__(self, input_name, input_income, input_cash): #to call this constructor after adding input parameters in popup to add new players
+        self.name = input_name
+        self.income = input_income
+        self.cash = input_cash
+        self.asset_value = 0
+        self.liabilities = 0 #may not need debt variable, need to double check in future
+        self.debt = 0
+        self.expense_per_month = 0
+        self.net_worth = self.cash
+
+    def payday(self):
+        self.cash += (self.income - self.expense_per_month)
+
+
 
 class WindowManager(ScreenManager):
     pass
