@@ -40,6 +40,10 @@ class AddPlayerPopup(Popup):
     PlayerIncome = NumericProperty(0.0)
     PlayerCash = NumericProperty(0.0)
 
+    def ShowInvalidEntryPopup(self):
+        popup = Factory.InvalidEntryPopup()
+        popup.open()
+
     def SavePlayerInfo(self):
         self.PlayerName = self.ids.name_input.text
         print("player name is", self.PlayerName)
@@ -47,17 +51,21 @@ class AddPlayerPopup(Popup):
             self.PlayerIncome = float(self.ids.income_input.text)
             print("player income is", self.PlayerIncome)
         except ValueError:
-            print("Invalid player income! put a valid number")
+            self.ShowInvalidEntryPopup()
+            #print("Invalid player income! put a valid number")
             self.ids.income_input.text = ""
             return
         try:
             self.PlayerCash = float(self.ids.cash_input.text)
             print("player cash is", self.PlayerCash)
         except ValueError:
-            print("Invalid player cash! put a valid number")
+            self.ShowInvalidEntryPopup()
+            #print("Invalid player cash! put a valid number")
             return
         self.dismiss()
 
+class InvalidEntryPopup(Popup):
+    pass
 
 
 class SOWapp(App):
