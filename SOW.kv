@@ -33,19 +33,19 @@ WindowManager:
             text: "ADD PLAYERS"
         BoxLayout:
             Button:
-                text: "Add player (now press this to proceed)"
+                text: "Add player"
                 on_release:
-                    app.root.current = "Gameplay"
-                    root.manager.transition.direction = "left"
+                    app.ShowAddPlayerPopup()
             Button:
                 text: "Go back"
                 on_release:
                     app.root.current = "Welcome"
                     root.manager.transition.direction = "right"
             Button:
-                text: "Add player"
+                text: "LET'S GO!"
                 on_release:
-                    app.ShowAddPlayerPopup()
+                    app.root.current = "Gameplay"
+                    root.manager.transition.direction = "left"
 
 <GameplayScreen@Screen>:
     name: "Gameplay"
