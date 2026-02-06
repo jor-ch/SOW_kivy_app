@@ -42,6 +42,11 @@ class AddPlayersScreen(Screen):
 
 class PlayerButton(Button):
     PlayerName = StringProperty("")
+    def get_player_details(self):
+        app = App.get_running_app()
+        self.Player = app.player_list[self.PlayerName]
+        self.Player.payday()
+
 
 class AddPlayerPopup(Popup):
     PlayerName = StringProperty("")
