@@ -65,11 +65,10 @@ class AddPlayerPopup(Popup):
             return
 
         app = App.get_running_app()
-        screen_manager = app.root
-        target_screen = screen_manager.get_screen("AddPlayers")
-        container = target_screen.ids.player_list
+        target_screen = app.root.get_screen("AddPlayers")
+        player_list_container = target_screen.ids.player_list
         player_button = Factory.PlayerButton()
-        container.add_widget(player_button)
+        player_list_container.add_widget(player_button)
 
         self.dismiss()
 
