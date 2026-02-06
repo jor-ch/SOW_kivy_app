@@ -71,6 +71,7 @@ class AddPlayerPopup(Popup):
 
         app = App.get_running_app()
         AddedPlayer = Player(self.PlayerName, self.PlayerIncome, self.PlayerCash)
+        app.player_list[AddedPlayer.name] = AddedPlayer
         target_screen = app.root.get_screen("AddPlayers")
         player_list_container = target_screen.ids.player_list
         player_button = Factory.PlayerButton(text = AddedPlayer.name, PlayerName = AddedPlayer.name)
@@ -84,7 +85,7 @@ class InvalidEntryPopup(Popup):
 
 
 class SOWapp(App):
-
+    App.player_list = dict()  # player_list takes name of player as key, and shows player class as value
     def ShowAddPlayerPopup(self):
         popup = Factory.AddPlayerPopup()
         popup.open()
