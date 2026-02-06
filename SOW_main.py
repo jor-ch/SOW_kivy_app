@@ -30,6 +30,7 @@ class Player:
 
     def payday(self):
         self.cash += (self.income - self.expense_per_month)
+        print("cash now is", self.cash)
 
 
 
