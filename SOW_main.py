@@ -63,6 +63,14 @@ class AddPlayerPopup(Popup):
         except ValueError:
             self.ShowInvalidEntryPopup()
             return
+
+        app = App.get_running_app()
+        screen_manager = app.root
+        target_screen = screen_manager.get_screen("AddPlayers")
+        container = target_screen.ids.player_list
+        player_button = Factory.PlayerButton()
+        container.add_widget(player_button)
+
         self.dismiss()
 
 class InvalidEntryPopup(Popup):
