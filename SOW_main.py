@@ -35,6 +35,9 @@ class Player:
 class WindowManager(ScreenManager):
     pass
 
+class AddPlayersScreen(Screen):
+    pass
+
 class AddPlayerPopup(Popup):
     PlayerName = StringProperty("")
     PlayerIncome = NumericProperty(0.0)

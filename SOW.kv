@@ -25,7 +25,7 @@ WindowManager:
                     app.root.current = "AddPlayers"
                     root.manager.transition.direction = "left"
 
-<AddPlayersScreen@Screen>:
+<AddPlayersScreen>:
     name: "AddPlayers"
     BoxLayout:
         orientation: "vertical"
@@ -143,6 +143,11 @@ WindowManager:
             Button:
                 text: "Exit popup"
                 on_release: root.dismiss() #to exit popup without adding player
+
+<PlayerButton@Button>:
+    size_hint_y : None
+    height: '40dp'
+    text:"added player!"
 
 <InvalidEntryPopup>:
     title: "Invalid entry!"
