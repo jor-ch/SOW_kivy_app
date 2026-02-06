@@ -52,7 +52,6 @@ class AddPlayerPopup(Popup):
             print("player income is", self.PlayerIncome)
         except ValueError:
             self.ShowInvalidEntryPopup()
-            #print("Invalid player income! put a valid number")
             self.ids.income_input.text = ""
             return
         try:
@@ -60,7 +59,6 @@ class AddPlayerPopup(Popup):
             print("player cash is", self.PlayerCash)
         except ValueError:
             self.ShowInvalidEntryPopup()
-            #print("Invalid player cash! put a valid number")
             return
         self.dismiss()
 
