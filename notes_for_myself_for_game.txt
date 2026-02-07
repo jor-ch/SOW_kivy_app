@@ -1,5 +1,0 @@
-To add:
-1. function to add boxlayout containing player details to player list when adding a player
-	-probably need to create an array of players to store the player information
-	-need to think of a way to show it well on phone screen, maybe a scrollview?
-2. function to remove a player from player list
